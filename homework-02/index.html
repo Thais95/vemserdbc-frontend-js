@@ -11,7 +11,7 @@
 </head>
 <body class="bg-dark text-light">
     <main class="container-fluid d-flex flex-column p-5">
-        <div class="h1 fw-bold pb-2 mb-5 text-warning border border-info rounded text-center border-warning col-2 align-self-center border-style-dotted" style="user-select: none;">
+        <div class="h1 fw-bold pb-2 mb-5 text-warning border border-info rounded text-center border-warning px-4 align-self-center border-style-dotted" style="user-select: none;">
             Homework 2
         </div>
 
@@ -51,11 +51,10 @@
             </h3>
 
             <form>
-                <input value="#ffc107" id="color-picker" style="width: 300px;" type="color" class="mt-3">
-                <br />
-                <button onclick="cliqueNoTexto()" type="button" class="bg-transparent border-0 pb-2 fs-3" id="text-color" style="color: #ffc107;">
+                <button onclick="clickOnText()" type="button" class="bg-transparent border-0 pb-2 fw-semibold fs-3" id="text-color" style="color: #ffc107;">
                     Este texto muda de cor!
                 </button>
+                <input value="#ffc107" id="color-picker" style="width: 100px; height: 30px;" type="color" class="mt-3 ms-3">
             </form>
 
             <hr style="margin: 80px 0 80px;">
@@ -69,16 +68,18 @@
 
             <h3 class="mt-2 mb-4">
                 <i class="bi bi-caret-right-fill"></i>
-                Counter em JS
+                Counter
             </h3>
 
-            <p id="counter">0</p>
+            <div class="card text-bg-light mt-3 mb-3" style="max-width: 210px;">
+                <p id="counter"  class="card-header">0</p>
+            </div>
 
-            <button id="counter-add" type="button" class="btn-primary">
+            <button id="counter-add" type="button" class="btn btn-warning fw-semibold" onclick="counterAdd()">
                 Adicionar +1
             </button>
 
-            <button type="button" class="btn-secondary">
+            <button id="counter-reset" type="button" class="mx-1 btn btn-secondary fw-semibold text-light" onclick="counterReset()">
                 Resetar
             </button>
 
@@ -93,8 +94,24 @@
 
             <h3 class="mt-2 mb-4">
                 <i class="bi bi-caret-right-fill"></i>
-                Mudar cor do texto usando Color Pick
+                Trocando filtro de imagem
             </h3>
+
+            <div class="mb-3">
+                <img id="image" src="https://cinema10.com.br/upload/noticias/2019-2/8497ed5fe5.png" style="width: 500px; border-radius: 4px;" alt="">
+            </div>
+
+            <button type="button" class="btn btn-warning fw-semibold" onclick="grayScale()">
+                Filtro 1 (P&B)
+            </button>
+
+            <button type="button" class="btn btn-success fw-semibold ms-1" onclick="sepia()">
+                Filtro 2 (Sépia)
+            </button>
+
+            <button type="button" class="btn btn-secondary fw-semibold ms-1" onclick="resetFilter()">
+                Resetar Filtro
+            </button>
 
             <hr style="margin: 80px 0 80px;">
         </section>
@@ -136,7 +153,7 @@
                     <button type="button" class="btn btn-warning fw-semibold" style="width: 131px;" onclick="calculate1()">
                         Calcular
                     </button>
-                    <button type="button" class="btn btn-secondary fw-semibold mx-1" style="width: 131px;" onclick="reset1()">
+                    <button type="button" class="btn btn-secondary fw-semibold mx-1" style="width: 131px;" onclick="calcReset()">
                         Limpar
                     </button>
                 </div>
@@ -151,43 +168,111 @@
         </section>
 
         <!-- EXERCÍCIO 06 -->
-        <section class="container">
+        <section class="container mb-5">
             <h5 class="text-white-50">
                 Exercício 6
             </h5>
 
-            <h3 class="mt-2 mb-4">
+            <h3 class="mt-2 mb-5">
                 <i class="bi bi-caret-right-fill"></i>
                 Calculadora II
             </h3>
 
-            <p id="equation"></p>
-
-            <button type="button" class="btn btn-danger" onclick="calcInput('')">
-                C
-            </button>
-
-            <button type="button" class="btn btn-warning" onclick="calcInput(1)">
-                1
-            </button>
-
-            <button type="button" class="btn btn-warning" onclick="calcInput(2)">
-                2
-            </button>
-
-            <button type="button" class="btn btn-warning" onclick="calcInput('+')">
-                +
-            </button>
-
-            <button type="button" class="btn btn-warning" onclick="calcInput('-')">
-                -
-            </button>
-
-            <button type="button" class="btn btn-primary" onclick="calculate2()">
-                =
-            </button>
             
-            <hr style="margin: 80px 0 80px;">
+            <div class="text-center p-3 py-2 rounded shadow" style="width: 240px; background-color: #f48d1e;">
+                
+                <div class="card text-bg-dark mt-1 mb-2 border-1 border-white" style="width: 225px; height: 100px; max-height: 100px; overflow: auto; margin-left: -8px; background-color: #000 !important;">
+                    <p id="done-equation" class="pt-1 text-secondary" style="height: 50px; visibility: hidden;">
+                        Equação
+                    </p>
+                    <p id="equation" class="card-header fs-4 fw-semibold" style="height: 50px; visibility: hidden;">
+                        Total
+                    </p>
+                </div>
+                
+                <div class="row align-items-start">
+                    <button type="button" class="m-1 fw-bold btn btn-warning" onclick="calcInput('')" style="width: 50px; height: 50px;">
+                        C
+                    </button>
+
+                    <button type="button" class="m-1 fw-bold btn btn-warning" onclick="backspace()" style="width: 50px; height: 50px;">
+                        🡰
+                    </button>
+
+                    <button type="button" class="m-1 fw-bold btn btn-warning" onclick="calcInput('/')" style="width: 50px; height: 50px;">
+                        /
+                    </button>
+
+                    <button type="button" class="m-1 fw-bold btn btn-warning" onclick="calcInput('*')" style="width: 50px; height: 50px;">
+                        *
+                    </button>
+                </div>
+
+                <div class="row align-items-start">
+                    <button type="button" class="m-1 fw-bold btn btn-warning" onclick="calcInput(7)" style="width: 50px; height: 50px;">
+                        7
+                    </button>
+
+                    <button type="button" class="m-1 fw-bold btn btn-warning" onclick="calcInput(8)" style="width: 50px; height: 50px;">
+                        8
+                    </button>
+
+                    <button type="button" class="m-1 fw-bold btn btn-warning" onclick="calcInput(9)" style="width: 50px; height: 50px;">
+                        9
+                    </button>
+
+                    <button type="button" class="m-1 fw-bold btn btn-warning" onclick="calcInput('-')" style="width: 50px; height: 50px;">
+                        -
+                    </button>
+                </div>
+
+                <div class="row align-items-start">
+                    <button type="button" class="m-1 fw-bold btn btn-warning" onclick="calcInput(4)" style="width: 50px; height: 50px;">
+                        4
+                    </button>
+
+                    <button type="button" class="m-1 fw-bold btn btn-warning" onclick="calcInput(5)" style="width: 50px; height: 50px;">
+                        5
+                    </button>
+
+                    <button type="button" class="m-1 fw-bold btn btn-warning" onclick="calcInput(6)" style="width: 50px; height: 50px;">
+                        6
+                    </button>
+
+                    <button type="button" class="m-1 fw-bold btn btn-warning" onclick="calcInput('+')" style="width: 50px; height: 50px;">
+                        +
+                    </button>
+                </div>
+
+                <div class="row align-items-start">
+                    <button type="button" class="m-1 fw-bold btn btn-warning" onclick="calcInput(1)" style="width: 50px; height: 50px;">
+                        1
+                    </button>
+
+                    <button type="button" class="m-1 fw-bold btn btn-warning" onclick="calcInput(2)" style="width: 50px; height: 50px;">
+                        2
+                    </button>
+
+                    <button type="button" class="m-1 fw-bold btn btn-warning" onclick="calcInput(3)" style="width: 50px; height: 50px;">
+                        3
+                    </button>
+                    
+                    <button type="button" class="col-4 m-1 fw-bold btn btn-warning" onclick="calculate2()" style="width: 50px; height: 108px;">
+                        =
+                    </button>  
+                </div>
+
+                <div class="row align-items-start" style="margin-top: -58px;">           
+                    <button type="button" class="col-4 m-1 fw-bold btn btn-warning" onclick="calcInput('0')" style="width: 108px; height: 50px;">
+                        0
+                    </button>
+
+                    <button type="button" class="m-1 fw-bold btn btn-warning" onclick="calcInput('.')" style="width: 50px; height: 50px;">
+                        .
+                    </button>                                      
+                </div>
+        
+            </div>
         </section>
 
     </main>

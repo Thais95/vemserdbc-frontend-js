@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://trickdroid.org/wp-content/uploads/2019/12/Sobre-JavaScript-Definicao-Historia-Usos-e-Forcas.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Homework 03 JS</title>
+</head>
+<body class="bg-dark text-light">    
+    <main class="container-fluid d-flex flex-column p-5" style="max-width: 500px;">
+        <h1 class="fw-bold pb-2 mb-5 text-success border border-success rounded text-center border-success px-4 align-self-center border-style-dotted" style="user-select: none;">
+            Homework 3
+        </h1>
+
+        <!-- Exercício 01 -->
+        <section class="mt-2">
+            <form class="form-control border-0 shadow text-light" action="" style="background-color: rgba(0, 0, 0, 0.263);">
+                <h2 class="mb-5 text-secondary h4" style="user-select: none;">Exercício 1</h2>
+
+                <label for="grade1" class="form-label">
+                    Nota 1
+                </label>
+                <input id="grade1" name="grade1" type="number" min="0" max="10" class="form-control mb-3">
+
+                <label for="grade2" class="form-label">
+                    Nota 2
+                </label>
+                <input id="grade2" name="grade2" type="number" min="0" max="10" class="form-control mb-3">
+
+                <label for="grade3" class="form-label">
+                    Nota 3
+                </label>
+                <input id="grade3" name="grade3" type="number" min="0" max="10" class="form-control mb-3">
+
+                <span class="d-flex flex-column align-items-center">
+                    <button type="button" class="btn btn-success fw-semibold mt-2" onclick="calcAverage()">
+                        Calcular média
+                    </button>
+
+                    <p class="mt-3 text-center" id="average-result" style="visibility: hidden; height: 50px;">
+                        Resultado
+                    </p>
+                </span>
+            </form>
+        </section>
+
+        <!-- Exercício 02 -->
+        <section class="mt-5 rounded p-2 shadow" style="background-color: rgba(0, 0, 0, 0.263);">
+            <h2 class="mb-5 text-secondary h4" style="user-select: none;">Exercício 2</h2>
+
+            <h5>Qual a soma dos primeiros 50 números pares?</h5>
+
+            <span class="d-flex flex-column align-items-center">
+                <button class="btn btn-success fw-semibold mt-2" onclick="showSum(50)">
+                    Calcular soma
+                </button>            
+
+                <p class="mt-3 text-center" id="sum-result" style="visibility: hidden; height: 50px;">
+                    Resultado
+                </p>
+            </span>
+        </section>
+
+        <!-- Exercício 03 -->
+        <section class="mt-5 rounded p-2 shadow" style="background-color: rgba(0, 0, 0, 0.263);">
+            <h2 class="mb-5 text-secondary h4" style="user-select: none;">Exercício 3</h2>
+            
+            <span class="d-flex flex-column align-items-center">
+                <button class="btn btn-success fw-semibold mb-5" onclick="clock(60)">
+                    console.log(relogio)
+                </button>
+            </span>
+        </section>
+
+        <!-- Exercício 04 -->
+        <section class="mt-5 rounded p-2 shadow" style="background-color: rgba(0, 0, 0, 0.263);">
+            <h2 class="mb-5 text-secondary h4" style="user-select: none;">Exercício 4</h2>
+            
+            <span class="d-flex flex-column align-items-center">
+                <button class="btn btn-success fw-semibold mb-5" onclick="menu()">
+                    Clique aqui para realizar o Checkin
+                </button>
+            </span>
+        </section>
+
+        <!-- Exercício 05 -->
+        <section class="mt-5 rounded p-2 shadow" style="background-color: rgba(0, 0, 0, 0.263);">
+            <h2 class="mb-5 text-secondary h4" style="user-select: none;">Exercício 5</h2>
+
+            <span class="d-flex flex-column align-items-center">
+                <button class="btn btn-success fw-semibold mb-5" onclick="carbon()">
+                    Teste de carbono
+                </button>
+            </span>
+        </section>
+
+        <!-- Exercício 06 -->
+        <section class="mt-5 rounded p-2 shadow" style="background-color: rgba(0, 0, 0, 0.263);">
+            <h2 class="mb-5 text-secondary h4" style="user-select: none;">Exercício 6</h2>
+
+            <span class="d-flex flex-column align-items-center">
+                <button class="btn btn-success fw-semibold mb-5" onclick="whileCount()">
+                    console.log(numerosParesAte100)
+                </button>
+            </span>
+        </section>
+
+        <!-- Exercício 07 -->
+        <section class="mt-5 rounded p-2 shadow" style="background-color: rgba(0, 0, 0, 0.263);">
+            <h2 class="mb-5 text-secondary h4" style="user-select: none;">Exercício 7</h2>
+
+            <span class="d-flex flex-column align-items-center">
+                <button class="btn btn-success fw-semibold mb-5" onclick="getAge()">
+                    Digite sua idade
+                </button>
+            </span>
+        </section>
+
+        <!-- Exercício 08 -->
+        <section class="mt-5 rounded p-2 shadow" style="background-color: rgba(0, 0, 0, 0.263);">
+            <h2 class="mb-5 text-secondary h4" style="user-select: none;">Exercício 8</h2>
+
+            <span class="d-flex flex-column align-items-center">
+                <button class="btn btn-success fw-semibold mb-5" onclick="wageRaisePercentage()">
+                    console.log(aumentoSalarial)
+                </button>
+            </span>
+        </section>
+
+        <!-- Exercício 09 -->
+        <section class="mt-5 rounded p-2 shadow" style="background-color: rgba(0, 0, 0, 0.263);">
+            <h2 class="mb-5 text-secondary h4" style="user-select: none;">Exercício 9</h2>
+
+            <span class="d-flex flex-column align-items-center">
+                <button class="btn btn-success fw-semibold mb-5" onclick="fibonacci()">
+                    console.log(fibonacci)
+                </button>
+            </span>
+        </section>
+
+    </main>    
+    <script src="./js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>

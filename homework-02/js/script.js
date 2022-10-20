@@ -25,7 +25,7 @@ function colorChange (event) {
     document.getElementById('text-color').style = `color: ${event.target.value}`;
 }
 
-function clickOnText(event) {
+function clickOnText() {
     colorPicker.click();
 }
 

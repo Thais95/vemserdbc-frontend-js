@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    list-style: none;
+}
+
+input, button, textarea {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(190,193,255,1) 14%, rgba(107,113,249,1) 48%, rgba(160,21,21,1) 100%);
+}
+
+.container {
+    min-height: 100vh;
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#pokemon-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    padding: 10px;
+    user-select: none;
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: -0.5rem -0.5rem 0.5rem 1rem rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+}
+
+#pokemon-img img {
+    height: 400px;
+    width: auto;
+    max-width: 500px;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    user-select: none;
+}
+
+.logo-text {
+    font-family: 'Paytone One', sans-serif;
+    letter-spacing: -5px;
+    word-spacing: 20px;
+    color: #ffcb05;
+    -webkit-text-stroke: 2px #3563ad;
+    text-shadow: 0 2px 5px #000;
+    font-weight: 900;
+    font-size: 3.2rem;
+    margin-bottom: -5px;
+}
+
+.logo img {
+    width: 350px;
+}
+
+#pokemon-container {
+    display: flex;
+    height: 500px;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+#pokemon-select {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 30px;
+}
+
+#pokemon-select button {
+    font-family: sans-serif;
+    text-transform: capitalize;
+    width: 200px;
+    height: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: 5px 5px gray 
+}
+
+#pokemon-select button:hover,
+#pokemon-select button:focus {
+    color: #e02424;
+    box-shadow: 5px 5px #e02424;
+    transform: translateY(-0.25em);
+}
+
+.right-answer {
+    font-family: 'Paytone One', sans-serif;
+    font-size: 2.5rem;
+    word-spacing: 2px;
+    color: #04d600;
+    -webkit-text-stroke: 2px #000000c3;
+    user-select: none;
+}
+
+.wrong-answer {
+    font-family: 'Paytone One', sans-serif;
+    font-size: 2.5rem;
+    word-spacing: 2px;
+    color: #206eff;
+    -webkit-text-stroke: 2px #000000ce;
+    user-select: none;
+}
+
+.poke-name {
+    color: #ffe600;
+}

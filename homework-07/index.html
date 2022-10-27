@@ -10,13 +10,41 @@
     <title>Homework 07 - JS</title>
     <link rel="shortcut icon" href="./img/pawprint.png" type="image/x-icon">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/blog/">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body style="background-color: #efefef;">    
+<body style="background-color: #efefef;">
+    
+    <!-- MODAL -->
+    <div id="overlay" class="overlay hidden">
+        <div class="modal-container">
+            <div id="modal" class="modal hidden">
+                <div class="modal-header">
+                    <h2>Adicionar um comentário</h2>
+                    <button class="close-modal" type="button" onclick="closeModal()">
+                        <img src="./img/close.svg" alt="" title="Fechar">
+                    </button>
+                </div>
+
+                <label for="">Diga seu nome</label>
+                <input class="save-text" id="comment-name" type="text" maxlength="40">
+
+                <label for="">Escreva seu comentário</label>
+                <textarea class="save-text" id="comment-text" type="text" maxlength="200"></textarea>
+
+                <button type="button" id="insert-comment" class="btn btn-send btn-info save fw-semibold text-light" type="button" title="Criar comentário">
+                    Enviar comentário
+                </button>
+
+            </div>
+        </div>
+    </div>
+    
     <div class="container">
+
         <header class="blog-header lh-1 py-3">
             <div class="row flex-nowrap justify-content-between align-items-center">
 
@@ -44,11 +72,11 @@
         </header>
 
         <hr />
-        
+
     </div>
 
     <main class="container flex d-flex flex-column align-items-center">
-        
+
         <div class="p-4 mb-4 mt-3 banner-container text-center">
 
             <div class="main-banner">
@@ -57,24 +85,26 @@
                 </h1>
                 <p class="lead my-3">
                     Random facts that you probably never heard!
-                    <br>From the simplest thing to the most mind breaking info you could possibly get about our furry friends.
+                    <br>From the simplest thing to the most mind breaking info you could possibly get about our furry
+                    friends.
                 </p>
             </div>
 
         </div>
 
         <div class="row g-5">
-            <div class="">
+            <div>
                 <div class="row mb-2" id="posts-container"></div>
             </div>
         </div>
 
-        <button class="btn btn-info fs-5 fw-semibold text-light mb-5 mt-2" style="width: 400px; height: 50px;" onclick="generateMorePosts()">
+        <button class="btn btn-info fs-5 fw-semibold text-light mb-5 mt-2" style="width: 400px; height: 50px;"
+            onclick="generatePosts(5)">
             Load more facts
         </button>
 
     </main>
-
+    
     <div class="container">
 
         <hr />
@@ -86,11 +116,13 @@
 
             <p class="text-secondary">
                 <span class="fw-semibold text-secondary">Usage credits:</span>
-                Blog template built for <a target="_blank" href="https://getbootstrap.com/">Bootstrap</a> by <a target="_blank" href="https://twitter.com/mdo">@mdo</a>
+                Blog template built for <a target="_blank" href="https://getbootstrap.com/">Bootstrap</a> by <a
+                    target="_blank" href="https://twitter.com/mdo">@mdo</a>
                 <i class="bi bi-dash-lg"></i>
                 <a target="_blank" href="https://www.flaticon.com/free-icons/dog" title="dog icons">Dog icons</a>
                 &
-                <a target="_blank" href="https://www.flaticon.com/free-icons/paw" title="paw icons">Paw icons created by Freepik - Flaticon</a>
+                <a target="_blank" href="https://www.flaticon.com/free-icons/paw" title="paw icons">Paw icons created by
+                    Freepik - Flaticon</a>
             </p>
 
         </footer>
@@ -98,7 +130,9 @@
     </div>
 
     <script src="./js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
 
 </body>
 
